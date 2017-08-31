@@ -18,6 +18,7 @@
 ########################################################################
 
 import sqlite3
+import os
 
 class storage:
     @staticmethod
@@ -54,8 +55,8 @@ class storage:
     def create_db(path=None):
         if path:
             if path != "pyas.asdb":
-                if not path[-1] == "\\":
-                    path = path + "\\pyas.asdb"
+                if not path[-1] == os.sep:
+                    path = path + os.sep+"pyas.asdb"
         else:
             path="pyas.asdb"
         conn = sqlite3.connect(path)
